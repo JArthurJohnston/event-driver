@@ -1,0 +1,21 @@
+{
+    "actions": [
+        {
+            "label": "Do The Thing",
+            "location": "src/doTheThing.js",
+            "triggers": ["START"],
+            "event": "THING_DONE"
+        },
+        {
+            "label": "Do The Other Thing",
+            "location": "src/doTheOtherThing.js",
+            "triggers": ["THING_DONE"],
+            "event": "OTHER_THING_DONE"
+        },
+        {
+            "label": "check the things",
+            "location": "src/checkTheThings.js",
+            "triggers": ["OTHER_THING_DONE", "THING_DONE"]
+        }
+    ]
+}
