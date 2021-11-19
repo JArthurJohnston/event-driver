@@ -1,3 +1,3 @@
-export default function mockFunction(params) {
+module.exports = function mockFunction(params) {
     return "some value"
 }

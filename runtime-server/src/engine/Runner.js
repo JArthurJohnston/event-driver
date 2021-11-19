@@ -1,8 +1,6 @@
-import EventMap from './EventMap'
-
 const server = require('express')()
 
-export default class Runner {
+module.exports = class Runner {
     constructor(){
         this.events = []
     }
@@ -18,8 +16,12 @@ export default class Runner {
 
     }
 
-    runEvents(){
-        this.events.forEach(event => {
+    start(){
+        
+    }
+
+    runEvents(events){
+        events.forEach(event => {
             
         });
     }

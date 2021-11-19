@@ -1,10 +1,10 @@
-import Action from "../engine/actions/Action";
-import EndAction from "../engine/actions/EndAction";
-import EventMap from "../engine/EventMap";
-import Runner from "../engine/Runner";
-const path = require('path')
+const path = require('path');
+const Action = require('../engine/actions/Action');
+const EndAction = require('../engine/actions/EndAction');
+const EventMap = require('../engine/EventMap');
+const Runner = require('../engine/Runner');
 
-export default function loadProject(projectDir){
+module.exports = function loadProject(projectDir){
     const {actions} = require(`${projectDir}/phaser-config.json`)
     actions.forEach(({location, triggers, event, label}) => {
         const actionLocation = path.resolve(`${projectDir}/${location}`)
@@ -16,3 +16,4 @@ export default function loadProject(projectDir){
     
     new Runner(EventMap, 3000).start()
 }
+

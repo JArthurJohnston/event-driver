@@ -1,7 +1,7 @@
-import Event from '../events/Event'
-import path from 'path'
+const path = require('path');
+const Event = require('../events/Event');
 
-export default class Action {
+module.exports = class Action {
     constructor(triggers, label, location, event){
         this.label = label
         this.triggers = triggers

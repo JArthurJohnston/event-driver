@@ -1,5 +1,5 @@
-import Action from "../src/engine/actions/Action"
-import Event from "../src/engine/events/Event"
+const Action = require("../src/engine/actions/Action")
+const Event = require("../src/engine/events/Event")
 
 test("creating and executing an action", async () => {
     const action = new Action([], "", "./test/mockFunctionForAction.js", "done")

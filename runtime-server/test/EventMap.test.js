@@ -1,6 +1,10 @@
-import Action from '../src/engine/actions/Action'
-import EventMap from '../src/engine/EventMap'
-import Event from '../src/engine/events/Event'
+const Action = require("../src/engine/actions/Action")
+const EventMap = require("../src/engine/EventMap")
+const Event = require("../src/engine/events/Event")
+
+beforeEach(()=> {
+    EventMap._clear()
+})
 
 test('actionsFor to return empty list for unknown events', () => {
     const event = new Event("lskjdf", {"sfljsd": "sdflhdsf"})

@@ -7,6 +7,16 @@ class EventMap {
         }
     }
 
+    /**
+     * For testing purposes only
+     */
+    _clear(){
+        this.map = {
+            "START": [],
+            "END": []
+        }
+    }
+
     register(action){
         action.triggers.forEach(triggerEvent => {
             if(this.map[triggerEvent]){
@@ -22,5 +32,5 @@ class EventMap {
     }
 }
 
-export default new EventMap()
+module.exports = new EventMap()
 //^^^ each time nodejs requires or imports this module, it will reuse this instance. giving us a pseudo-singleton
