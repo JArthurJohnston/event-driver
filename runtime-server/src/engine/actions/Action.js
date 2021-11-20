@@ -1,5 +1,6 @@
 const path = require('path');
 const Event = require('../events/Event');
+const Runner = require('../Runner');
 
 module.exports = class Action {
     constructor(triggers, label, location, event){
@@ -18,9 +19,11 @@ module.exports = class Action {
         return this.actionFunction
     }
 
-    async execute({payload}){
+    async execute(eventPayload){
         const actionFunction = await this._loadFunction()
-        const result = await actionFunction(payload)
-        return new Event(this.event, result)
+        const result = await actionFunction(eventPayload)
+        if(this.event){
+            Runner.dispatchEvent(new Event(this.event, result))
+        }
     }
 }

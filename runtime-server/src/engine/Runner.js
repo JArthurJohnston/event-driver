@@ -1,30 +1,29 @@
+const EventMap = require('./EventMap');
+
 const server = require('express')()
 
-module.exports = class Runner {
-    constructor(){
+class Runner {
+    constructor() {
         this.events = []
     }
 
-    startOn(port){
-        console.log(EventMap);
+    startOn(port) {
         server.listen(port, () => {
-
+            this.start()
         })
     }
 
-    dispatchEvent(event){
-
+    dispatchEvent(event) {
+        console.log('dispatching', event);
+        setTimeout(() => {
+            EventMap.actionsFor(event)
+                .forEach(action => action.execute(event.payload))
+        }, 0);
     }
 
-    start(){
-        
+    start() {
+        this.dispatchEvent({key: 'START', payload: {started: Date.now()}})
     }
-
-    runEvents(events){
-        events.forEach(event => {
-            
-        });
-    }
-
-
 }
+
+module.exports = new Runner()

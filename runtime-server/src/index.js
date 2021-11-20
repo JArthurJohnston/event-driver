@@ -1,5 +1,6 @@
 const loadProject = require('./initialization/loadProject')
-const path = require('path')
+const path = require('path');
+const Runner = require('./engine/Runner');
 
 function goTime(args){
     console.log('Initializing Phaser');
@@ -9,6 +10,9 @@ function goTime(args){
     }
     const projectDir = path.resolve(args[2])
     loadProject(projectDir)
+
+    Runner.start()
+    // Runner.startOn(3000)
 }
 
 module.exports = {

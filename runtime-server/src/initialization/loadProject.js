@@ -9,11 +9,16 @@ module.exports = function loadProject(projectDir){
     actions.forEach(({location, triggers, event, label}) => {
         const actionLocation = path.resolve(`${projectDir}/${location}`)
         const action = new Action(triggers, label, actionLocation, event)
+        /*
+        Check if the action returns the same event as its triggers. If so
+        throw a warning/error. Possibly let the user supres this warning
+        as it may be an intentional while loop situation
+        */
         EventMap.register(action)
     });
 
     EventMap.register(new EndAction())
     
-    new Runner(EventMap, 3000).start()
+    // new Runner(EventMap, 3000).start()
 }
 
