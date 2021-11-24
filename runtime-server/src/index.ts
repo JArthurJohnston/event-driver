@@ -1,8 +1,8 @@
-const loadProject = require('./initialization/loadProject')
-const path = require('path');
-const Runner = require('./engine/Runner');
+import path from 'path'
+import Runner from './engine/Runner';
+import loadProject from './initialization/loadProject';
 
-function goTime(args){
+export default function goTime(args: any){
     console.log('Initializing Phaser');
     if(args.length < 3) {
         console.error('Invalid number of arguments. Must specify a project directory')
@@ -15,6 +15,4 @@ function goTime(args){
     // Runner.startOn(3000)
 }
 
-module.exports = {
-    goTime
-}
+

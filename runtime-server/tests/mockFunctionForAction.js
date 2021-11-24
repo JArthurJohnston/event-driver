@@ -1,3 +1,3 @@
 module.exports = function mockFunction(params) {
-    return "some value"
+    return `Some Value ${params}`
 }

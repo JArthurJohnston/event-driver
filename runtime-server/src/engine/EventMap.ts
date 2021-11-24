@@ -1,5 +1,8 @@
+import Action from "./actions/Action";
+import Event from "./events/Event";
 
 class EventMap {
+    map: any
     constructor(){
         this.map = {
             "START": [],
@@ -17,7 +20,7 @@ class EventMap {
         }
     }
 
-    register(action){
+    register(action: Action){
         action.triggers.forEach(triggerEvent => {
             if(this.map[triggerEvent]){
                 this.map[triggerEvent].push(action)
@@ -27,7 +30,7 @@ class EventMap {
         });
     }
 
-    actionsFor(event){
+    actionsFor(event: Event){
         return this.map[event.key] || []
     }
 }

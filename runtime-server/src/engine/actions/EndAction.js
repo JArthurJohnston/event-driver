@@ -1,4 +1,4 @@
-module.exports = class EndAction {
+export default class EndAction{
 
     constructor(){
         this.triggers = ["END"]
